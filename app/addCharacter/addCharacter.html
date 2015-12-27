@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>Shadowrun Multi-User</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="shadowrun.css" rel="stylesheet">
+
+</head>
+
+<body ng-controller="AddCharacterCtrl">
+
+    <div class="shadowrun-masthead">
+        <div class="container">
+            <nav class="shadowrun-nav">
+                <a class="shadowrun-nav-item" href="#">Home</a>
+                <a class="shadowrun-nav-item active" href="#/addCharacter">Add Character</a>
+
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+      <form name="characterGen" ng-submit="AddCharacter()">
+        <fieldset>
+        <legend>Character Profile</legend>
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="charName">Character Name</label>
+          <div class="col-md-4">
+            <input id="charName" name="charName" ng-model="character.chName" type="text" placeholder="Name"  class="form-control input-md">
+          </div>
+        </div>
+        <legend>Physical Attributes</legend>
+        <div class="form-group">
+          <label class="col-md-1 control-label" for="charName">Body</label>
+          <div class="col-md-2">
+            <input id="charBody" name="charBody" ng-model="character.chBody" type="text" placeholder="Body" class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charAgility">Agility</label>
+          <div class="col-md-2">
+            <input id="charAgility" name="charAgility" ng-model="character.agility" type="text" placeholder="Agility"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charReaction">Reaction</label>
+          <div class="col-md-2">
+            <input id="charReaction" name="charReaction" ng-model="character.reaction" type="text" placeholder="Reaction"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charStrength">Strength</label>
+          <div class="col-md-2">
+            <input id="charReaction" name="charStrength" ng-model="character.strength" type="text" placeholder="Strength"  class="form-control input-md">
+          </div>
+        </div>
+        <legend>Mental Attributes</legend>
+        <div class="form-group">
+          <label class="col-md-1 control-label" for="charCharisma">Charisma</label>
+          <div class="col-md-2">
+            <input id="charCharisma" name="charCharisma" ng-model="character.charisma" type="text" placeholder="Charisma"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charIntuition">Intuition</label>
+          <div class="col-md-2">
+            <input id="charIntuition" name="charIntuition" ng-model="character.intuition" type="text" placeholder="Intuition"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charLogic">Logic</label>
+          <div class="col-md-2">
+            <input id="charLogic" name="charLogic" ng-model="character.logic" type="text" placeholder="Logic"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charWillpower">Willpower</label>
+          <div class="col-md-2">
+            <input id="charWillpower" name="charWillpower" ng-model="character.willpower" type="text" placeholder="Willpower"  class="form-control input-md">
+          </div>
+        </div>
+        <legend>Special Attributes</legend>
+        <div class="form-group">
+          <label class="col-md-1 control-label" for="charEdge">Edge</label>
+          <div class="col-md-2">
+            <input id="charEdge" name="charEdge" ng-model="character.edge" type="text" placeholder="Edge"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charEssence">Essence</label>
+          <div class="col-md-2">
+            <input id="charEssence" name="charEssence" ng-model="character.essence" type="text" placeholder="Essence"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charInitiative">Initiative</label>
+          <div class="col-md-2">
+            <input id="charInitiative" name="charInitiative" ng-model="character.initiative" type="text" placeholder="Initiative"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charInitiativePasses">Initiative Passes</label>
+          <div class="col-md-2">
+            <input id="charInitiativePasses" name="charInitiativePasses" ng-model="character.initiativePasses" type="text" placeholder="Initiative Passes"  class="form-control input-md">
+          </div>
+        </div>
+        <legend>Melee Skills</legend>
+        <div class="form-group">
+          <label class="col-md-1 control-label" for="charBlades">Blades</label>
+          <div class="col-md-2">
+            <input id="charBlades" name="charBlades" ng-model="character.blades" type="text" placeholder="Blades"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charClubs">Clubs</label>
+          <div class="col-md-2">
+            <input id="charClubs" name="charClubs" ng-model="character.clubs" type="text" placeholder="Clubs"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charExoticMelee">Exotic Melee</label>
+          <div class="col-md-2">
+            <input id="charExoticMelee" name="charExoticMelee" ng-model="character.exoticMelee" type="text" placeholder="Exotic Melee"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charUnarmed">Unarmed</label>
+          <div class="col-md-2">
+            <input id="charUnarmed" name="charUnarmed" ng-model="character.unarmed" type="text" placeholder="Unarmed"  class="form-control input-md">
+          </div>
+        </div>
+        <legend>Ranged Skills</legend>
+        <div class="form-group">
+          <label class="col-md-1 control-label" for="charArchery">Archery</label>
+          <div class="col-md-2">
+            <input id="charArchery" name="charArchery" ng-model="character.archery" type="text" placeholder="Archery"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charAutomatics">Automatics</label>
+          <div class="col-md-2">
+            <input id="charAutomatics" name="charAutomatics" ng-model="character.automatics" type="text" placeholder="Automatics"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charExoticRanged">Exotic Ranged</label>
+          <div class="col-md-2">
+            <input id="charExoticRanged" name="charExoticRanged" ng-model="character.exoticRanged" type="text" placeholder="Exotic Ranged"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charHeavy">Heavy</label>
+          <div class="col-md-2">
+            <input id="charHeavy" name="charHeavy" ng-model="character.heavy" type="text" placeholder="Heavy"  class="form-control input-md">
+          </div>
+        </div>
+        <legend>&nbsp;</legend>
+        <div class="form-group">
+          <label class="col-md-1 control-label" for="charLongarms">Longarms</label>
+          <div class="col-md-2">
+            <input id="charLongarms" name="charLongarms" ng-model="character.longarms" type="text" placeholder="Longarms"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charPistols">Pistols</label>
+          <div class="col-md-2">
+            <input id="charPistols" name="charPistols" ng-model="character.pistols" type="text" placeholder="Pistols"  class="form-control input-md">
+          </div>
+          <label class="col-md-1 control-label" for="charThrowing">Throwing</label>
+          <div class="col-md-2">
+            <input id="charThrowing" name="charThrowing" ng-model="character.throwing" type="text" placeholder="Throwing"  class="form-control input-md">
+          </div>
+        </div>
+        <legend>Defenses</legend>
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="charArmorRating">Armor Rating</label>
+          <div class="col-md-2">
+            <input id="charArmorRating" name="charArmorRating" ng-model="character.armorRating" type="text" placeholder="Armor Rating"  class="form-control input-md">
+          </div>
+          <label class="col-md-2 control-label" for="charDodge">Dodge</label>
+          <div class="col-md-2">
+            <input id="charDodge" name="charDodge" ng-model="character.dodge" type="text" placeholder="Dodge"  class="form-control input-md">
+          </div>
+          <label class="col-md-2 control-label" for="charGymnastics">Gymnastics</label>
+          <div class="col-md-2">
+            <input id="charGymnastics" name="charGymnastics" ng-model="character.gymnastics" type="text" placeholder="Gymnastics"  class="form-control input-md">
+          </div>
+        </div>
+        <legend>Damage Tracks</legend>
+        <div class="form-group">
+          <label class="col-md-3 control-label" for="charPhysical">Physical</label>
+          <div class="col-md-3">
+            <input id="charPhysical" name="charPhysical" ng-model="character.physical" type="text" placeholder="Physical"  class="form-control input-md">
+          </div>
+          <label class="col-md-3 control-label" for="charStun">Stun</label>
+          <div class="col-md-3">
+            <input id="charStun" name="charStun" ng-model="character.stun" type="text" placeholder="Stun"  class="form-control input-md">
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-12 control-label" for="singlebutton"></label>
+          <div class="col-md-12">
+              <input id="singlebutton" name="singlebutton" ng-disabled="!character.chName" class="btn btn-primary" type="submit" value="Save" />
+          </div>
+        </div>
+        </fieldset>
+      </form>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted"></p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
