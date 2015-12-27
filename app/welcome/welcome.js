@@ -67,6 +67,23 @@ angular.module('myApp.welcome', ['ngRoute'])
       console.log("Error: ", error);
     });
   }
+  //pre delete confirmation
+  $scope.confirmDelete = function(id) {
+    var firebaseObj = new Firebase("https://shadowrun-multiuser.firebaseio.com/characters/" + id);
+    var character = $firebase(firebaseObj);
+    $scope.charToDelete = character.$asObject();
+    $('#deleteChar').modal();
+  }
+  //delete the character
+  $scope.deleteChar = function(){
+    var firebaseObj = new Firebase("https://shadowrun-multiuser.firebaseio.com/characters/" + $scope.charToDelete.$id);
+    var character = $firebase(firebaseObj);
+    character.$remove().then(function(ref) {
+      $('#deleteChar').modal('hide');
+    }, function(error) {
+      console.log("Error: ", error);
+    });
+  }
 
 
 }]);

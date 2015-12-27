@@ -36,7 +36,7 @@
           <h4 class="list-group-item-heading">{{character.Name}}</h4>
           <span class="pull-right">
             <button class="btn btn-xs btn-info" ng-click="editCharacter(character.$id)" data-target="#editChar">EDIT</button>
-            <button class="btn btn-xs btn-warning">DELETE</button>
+            <button class="btn btn-xs btn-warning" ng-click="confirmDelete(character.$id)" data-target="#deleteChar">DELETE</button>
           </span>
         </a>
       </div>
@@ -53,7 +53,7 @@
       <div class="modal-body">
         <form role="form">
           <fieldset>
-          <legend>Character Profile for {{charToUpdate.Name}}</legend>
+          <legend>Editing {{charToUpdate.Name}}</legend>
           <!-- TODO: ADD character FORM postToUpdate.name-->
           <div class="form-group">
             <label for="characterName" class="control-label">Name:</label>
@@ -206,6 +206,25 @@
   </div>
 </div>
 <!--- end modal edit -->
+
+<!-- modal delete -->
+<div class="modal fade" id="deleteChar" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="text-align:center;">
+                <h4 class="modal-title" style="color:red;" id="deleteModalLabel">You are going to Delete this character forever !!</h4>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" ng-click="deleteChar()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- end modal delete -->
     <footer class="footer">
         <div class="container">
             <p class="text-muted"></p>
