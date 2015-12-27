@@ -7,11 +7,12 @@ angular.module('myApp.addCharacter', ['ngRoute'])
     controller: 'AddCharacterCtrl'
   });
 }])
-.controller('AddCharacterCtrl', ['$scope', '$firebase', function($scope, $firebase) {
+.controller('AddCharacterCtrl', ['$scope', '$firebase','$location', 'CommonProp', function($scope,$firebase,$location,CommonProp) {
   $scope.AddCharacter = function() {
-    var firebaseObj = new Firebase("https://shadowrun-multiuser.firebaseio.com");
+    var firebaseObj = new Firebase("https://shadowrun-multiuser.firebaseio.com/characters");
     var fb = $firebase(firebaseObj);
     //profile
+    var playerID = CommonProp.getUser();
     var chName = $scope.character.chName;
     //physical attributes
     var chBody      = $scope.character.chBody || 0;
@@ -50,6 +51,7 @@ angular.module('myApp.addCharacter', ['ngRoute'])
     var chStun = $scope.character.stun || 0;
 
     fb.$push({
+      userID: playerID,
       Name: chName,
       Body: chBody,
       Agility: chAgility,
@@ -79,7 +81,8 @@ angular.module('myApp.addCharacter', ['ngRoute'])
       Gymnastics: chGymnastics,
       Physical: chPhysical
     }).then(function(ref){
-      console.log(ref);
+      $location.path('/welcome');
+      console.log("push was succesful why is location not working!: ", ref);
     }, function(error) {
       console.log("errror:", error);
     });
