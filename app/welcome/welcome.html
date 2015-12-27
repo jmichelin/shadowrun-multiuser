@@ -32,11 +32,186 @@
     <div class="container">
       <div class="page-header">Character List</div>
       <div class="list-group" ng-repeat="character in characters">
-          <a href="#" class="list-group-item active">
+        <a href="#" class="list-group-item active" onclick="return false;">
           <h4 class="list-group-item-heading">{{character.Name}}</h4>
-      </a>
+          <span class="pull-right">
+            <button class="btn btn-xs btn-info" data-toggle="modal" data-target="#editChar">EDIT</button>
+            <button class="btn btn-xs btn-warning">DELETE</button>
+          </span>
+        </a>
       </div>
     </div>
+
+<!--- modal edit --->
+<div class="modal fade" id="editChar" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="editModalLabel">Update Character</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <fieldset>
+          <legend>Character Profile for {{username}}</legend>
+          <!-- TODO: ADD character FORM postToUpdate.name-->
+          <div class="form-group">
+            <label for="characterName" class="control-label">Name:</label>
+            <input type="text" class="form-control" ng-model="charToUpdate.name" id="characterName">
+          </div>
+          <legend>Physical Attributes</legend>
+          <div class="form-group">
+            <label class="col-md-1 control-label" for="charBody">Body</label>
+            <div class="col-md-2">
+              <input id="charBody" name="charBody" ng-model="charToUpdate.chBody" type="text" placeholder="Body" class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charAgility">Agility</label>
+            <div class="col-md-2">
+              <input id="charAgility" name="charAgility" ng-model="charToUpdate.agility" type="text" placeholder="Agility"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charReaction">Reaction</label>
+            <div class="col-md-2">
+              <input id="charReaction" name="charReaction" ng-model="charToUpdate.reaction" type="text" placeholder="Reaction"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charStrength">Strength</label>
+            <div class="col-md-2">
+              <input id="charReaction" name="charStrength" ng-model="charToUpdate.strength" type="text" placeholder="Strength"  class="form-control input-md">
+            </div>
+          </div>
+          <legend>Mental Attributes</legend>
+          <div class="form-group">
+            <label class="col-md-1 control-label" for="charCharisma">Charisma</label>
+            <div class="col-md-2">
+              <input id="charCharisma" name="charCharisma" ng-model="charToUpdate.charisma" type="text" placeholder="Charisma"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charIntuition">Intuition</label>
+            <div class="col-md-2">
+              <input id="charIntuition" name="charIntuition" ng-model="charToUpdate.intuition" type="text" placeholder="Intuition"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charLogic">Logic</label>
+            <div class="col-md-2">
+              <input id="charLogic" name="charLogic" ng-model="charToUpdate.logic" type="text" placeholder="Logic"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charWillpower">Willpower</label>
+            <div class="col-md-2">
+              <input id="charWillpower" name="charWillpower" ng-model="charToUpdate.willpower" type="text" placeholder="Willpower"  class="form-control input-md">
+            </div>
+          </div>
+          <legend>Special Attributes</legend>
+          <div class="form-group">
+            <label class="col-md-1 control-label" for="charEdge">Edge</label>
+            <div class="col-md-2">
+              <input id="charEdge" name="charEdge" ng-model="charToUpdate.edge" type="text" placeholder="Edge"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charEssence">Essence</label>
+            <div class="col-md-2">
+              <input id="charEssence" name="charEssence" ng-model="charToUpdate.essence" type="text" placeholder="Essence"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charInitiative">Initiative</label>
+            <div class="col-md-2">
+              <input id="charInitiative" name="charInitiative" ng-model="charToUpdate.initiative" type="text" placeholder="Initiative"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charInitiativePasses">Initiative Passes</label>
+            <div class="col-md-2">
+              <input id="charInitiativePasses" name="charInitiativePasses" ng-model="charToUpdate.initiativePasses" type="text" placeholder="Initiative Passes"  class="form-control input-md">
+            </div>
+          </div>
+          <legend>Melee Skills</legend>
+          <div class="form-group">
+            <label class="col-md-1 control-label" for="charBlades">Blades</label>
+            <div class="col-md-2">
+              <input id="charBlades" name="charBlades" ng-model="charToUpdate.blades" type="text" placeholder="Blades"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charClubs">Clubs</label>
+            <div class="col-md-2">
+              <input id="charClubs" name="charClubs" ng-model="charToUpdate.clubs" type="text" placeholder="Clubs"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charExoticMelee">Exotic Melee</label>
+            <div class="col-md-2">
+              <input id="charExoticMelee" name="charExoticMelee" ng-model="charToUpdate.exoticMelee" type="text" placeholder="Exotic Melee"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charUnarmed">Unarmed</label>
+            <div class="col-md-2">
+              <input id="charUnarmed" name="charUnarmed" ng-model="charToUpdate.unarmed" type="text" placeholder="Unarmed"  class="form-control input-md">
+            </div>
+          </div>
+          <legend>Ranged Skills</legend>
+          <div class="form-group">
+            <label class="col-md-1 control-label" for="charArchery">Archery</label>
+            <div class="col-md-2">
+              <input id="charArchery" name="charArchery" ng-model="charToUpdate.archery" type="text" placeholder="Archery"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charAutomatics">Automatics</label>
+            <div class="col-md-2">
+              <input id="charAutomatics" name="charAutomatics" ng-model="charToUpdate.automatics" type="text" placeholder="Automatics"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charExoticRanged">Exotic Ranged</label>
+            <div class="col-md-2">
+              <input id="charExoticRanged" name="charExoticRanged" ng-model="charToUpdate.exoticRanged" type="text" placeholder="Exotic Ranged"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charHeavy">Heavy</label>
+            <div class="col-md-2">
+              <input id="charHeavy" name="charHeavy" ng-model="charToUpdate.heavy" type="text" placeholder="Heavy"  class="form-control input-md">
+            </div>
+          </div>
+          <legend>&nbsp;</legend>
+          <div class="form-group">
+            <label class="col-md-1 control-label" for="charLongarms">Longarms</label>
+            <div class="col-md-2">
+              <input id="charLongarms" name="charLongarms" ng-model="charToUpdate.longarms" type="text" placeholder="Longarms"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charPistols">Pistols</label>
+            <div class="col-md-2">
+              <input id="charPistols" name="charPistols" ng-model="charToUpdate.pistols" type="text" placeholder="Pistols"  class="form-control input-md">
+            </div>
+            <label class="col-md-1 control-label" for="charThrowing">Throwing</label>
+            <div class="col-md-2">
+              <input id="charThrowing" name="charThrowing" ng-model="charToUpdate.throwing" type="text" placeholder="Throwing"  class="form-control input-md">
+            </div>
+          </div>
+          <legend>Defenses</legend>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="charArmorRating">Armor Rating</label>
+            <div class="col-md-2">
+              <input id="charArmorRating" name="charArmorRating" ng-model="charToUpdate.armorRating" type="text" placeholder="Armor Rating"  class="form-control input-md">
+            </div>
+            <label class="col-md-2 control-label" for="charDodge">Dodge</label>
+            <div class="col-md-2">
+              <input id="charDodge" name="charDodge" ng-model="charToUpdate.dodge" type="text" placeholder="Dodge"  class="form-control input-md">
+            </div>
+            <label class="col-md-2 control-label" for="charGymnastics">Gymnastics</label>
+            <div class="col-md-2">
+              <input id="charGymnastics" name="charGymnastics" ng-model="charToUpdate.gymnastics" type="text" placeholder="Gymnastics"  class="form-control input-md">
+            </div>
+          </div>
+          <legend>Damage Tracks</legend>
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="charPhysical">Physical</label>
+            <div class="col-md-3">
+              <input id="charPhysical" name="charPhysical" ng-model="charToUpdate.physical" type="text" placeholder="Physical"  class="form-control input-md">
+            </div>
+            <label class="col-md-3 control-label" for="charStun">Stun</label>
+            <div class="col-md-3">
+              <input id="charStun" name="charStun" ng-model="charToUpdate.stun" type="text" placeholder="Stun"  class="form-control input-md">
+            </div>
+          </div>
+        </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ng-click="update()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--- end modal edit -->
+
+
+
+
     <footer class="footer">
         <div class="container">
             <p class="text-muted"></p>
